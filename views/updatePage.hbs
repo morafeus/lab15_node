@@ -1,0 +1,18 @@
+<div>
+    {{>updatelist}}
+    {{>updatebuttons}}
+</div>
+
+<script>
+    function Delete(){
+        const id = document.getElementById("name");
+        var elem = {name: id.value}
+        fetch("/delete", {
+            method: "POST",  
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body:JSON.stringify(elem)
+        }).then((resp) => {window.location = '/'});
+    }
+</script>

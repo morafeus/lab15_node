@@ -1,0 +1,11 @@
+ {{#if data}}
+    <div>
+        <h3>Name  Phone_number</h3>
+    </div>
+    {{#each data}}
+        <div>
+            <a style="all: unset;" href="/update?name={{name}}">{{name}} {{phone_number}}</a>
+        </div>
+
+    {{/each}}
+    {{/if}}
