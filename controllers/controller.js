@@ -20,9 +20,16 @@ module.exports = {
             attr = qs.parse(data)
         });
         fs.readFile('directory.json',(err,data)=>{    
+            if(JSON.parse(data).length != 0){
+                var id = JSON.parse(data).pop().id;
+              }
+              else{
+                var id = 0;
+              }
             var contacts = JSON.parse(data);
             console.log(attr['phone_number'])
             var newContact ={
+                id:+id+1,
                 name:attr['name'],
                 phone_number:attr['phone_number']
             }
@@ -54,10 +61,12 @@ module.exports = {
             var contacts = JSON.parse(data);
             console.log(attr['phone_number'])
             var newContact ={
+                id:attr['id'],
                 name:attr['name'],
                 phone_number:attr['phone_number']
             }
-            var index = contacts.findIndex(elem => elem.name == attr['name'])
+            console.log(newContact);
+            var index = contacts.findIndex(elem => elem.id == attr['id'])
             contacts[index] = newContact;
             var db = JSON.stringify(contacts);
             fs.writeFile('directory.json',db,'utf8',(err)=>{});
