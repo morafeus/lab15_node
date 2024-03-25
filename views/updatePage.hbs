@@ -15,4 +15,10 @@
             body:JSON.stringify(elem)
         }).then((resp) => {window.location = '/'});
     }
+
+    function checkButton(){
+        const buff = document.getElementById("deleteButton");
+        console.log("hello");
+        buff.setAttribute('disabled', true);
+    }
 </script>

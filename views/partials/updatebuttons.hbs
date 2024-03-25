@@ -3,11 +3,11 @@
             <div>
                 <input id="name" name="name" type="text"placeholder="Name" value="{{person.name}}" hidden>
                 <label>{{person.name}}</label>
-                <input class="text-field__input" id="phone_number" name="phone_number" type="text" placeholder="Phone for update">
+                <input class="text-field__input" id="phone_number" oninput="checkButton()" name="phone_number" type="text" placeholder="Phone for update">
             </div>
             <div>
                 <input class="btn" type="submit" value="update_item">
-                <input class="btn" type="button" value="delte_item" onclick="Delete()">
+                <input class="btn" id="deleteButton" type="button" value="delte_item" onclick="Delete()">
                 <input class="btn" type="button" value="dismiss" onclick="{{Back}}">  
             </div>
         </form>
